@@ -7,7 +7,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 import Home from "./src/components/Home";
-import TipoTreino from "./src/components/TipoTreino";
 import Treino from "./src/components/Treino";
 
 export default function App() {

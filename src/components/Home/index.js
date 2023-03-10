@@ -1,9 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
 import { useCallback } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import {useFonts} from 'expo-font';
 
-
+import treino from "../../../db/treinoBanco";
 
 
 export default function Home({navigation}) {
@@ -27,6 +26,18 @@ export default function Home({navigation}) {
     return null;
   }
 
+  /**
+   * function escolhe treino.
+   */
+  function escolheTreino(){
+
+    let treinoLength = treino.length; 
+
+    let treinoEscolhido = (Math.floor(Math.random() * treinoLength)) + 1;
+
+    return treinoEscolhido;
+  }
+
   /**===========
    * RETURN
    =========*/
@@ -42,7 +53,7 @@ export default function Home({navigation}) {
       <View style={styles.buttonContainer}>
         <TouchableOpacity 
           style={styles.button}
-          onPress={()=>navigation.navigate("Treino")}
+          onPress={()=>navigation.navigate("Treino", {treinoIndex:escolheTreino()})}
         >
           <Text style={styles.textButton}>COMEÇAR</Text>
         </TouchableOpacity>

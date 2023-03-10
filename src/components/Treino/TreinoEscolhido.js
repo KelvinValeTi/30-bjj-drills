@@ -11,7 +11,7 @@ import treino from "../../../db/treinoBanco";
  * 
  * FUNÇÃO
  */
-export default function TreinoEscolhido() {
+export default function TreinoEscolhido(props) {
 
   /**
    * CARREGANDO FONTE
@@ -38,17 +38,15 @@ export default function TreinoEscolhido() {
   return (
       <View style={styles.treinoContainer}>
         
-        <Text style={styles.treinoTitle}>{treino[2].title}</Text>
+        <Text style={styles.treinoTitle}>{treino[props.treino -1].title}</Text>
         
-        <Text style={styles.treinoMetodo}>{`${treino[2].metodo} de:`}</Text>
-        
-
+        <Text style={styles.treinoMetodo}>{`${treino[props.treino -1].metodo} de:`}</Text>
 
         {/**GAMBIARRA, ajeitar depois*/}
           <Text style={styles.treinoText}>
             {
-              treino[2].exercicio.map(function(item, i) {
-                return item +"\n"
+              treino[props.treino -1].exercicio.map(function(item, i) {
+                return "-> "+item +"\n"
               })
             }
           </Text>

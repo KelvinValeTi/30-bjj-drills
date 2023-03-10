@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     
     treinoText:{
       textAlign:"left",
-      fontSize:16,
+      fontSize:17,
     },
     //Button
     buttonContainer:{
