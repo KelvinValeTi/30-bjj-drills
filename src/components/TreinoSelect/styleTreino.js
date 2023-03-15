@@ -69,8 +69,45 @@ const styles = StyleSheet.create({
       fontFamily:"LeagueSpartanBold",
       textAlign:"center",
       fontSize: 20,
-    }
+    },
+
+    //cronometro
+    cronometro:{
+      width:"100%",
+      
+    },
+
+    cronometroNum:{
+      color:"#FFFFFF",
+      fontSize:90,
+      fontFamily:"LeagueSpartanBold",
+      textAlign:"center",
+    },
+
+    roundConcluido:{
+      backgroundColor:"#357643",
+      borderRadius:30,
   
+      padding:5,
+      width:"40%",
+      height:50,
+
+      marginRight:30,
+      marginTop:10,
+      marginBottom:10,
+
+      alignItems:"center",
+      justifyContent:"center",
+      alignSelf:"flex-end",
+    },
+
+    textButtonRound:{
+      color:"#FFFFFF",
+      fontFamily:"LeagueSpartanBold",
+      textAlign:"center",
+      fontSize: 16,
+    },
+
   });
 
   export default styles;

@@ -5,12 +5,13 @@ import {useFonts} from 'expo-font';
 import styles from "./styleTreino";
 import TreinoEscolhido from './TreinoEscolhido';
 import treino from "../../../db/treinoBanco";
+import Cronometro from './Cronometro';
 
-export default function Treino({navigation, route}) {
+export default function TreinoSelect({navigation, route}) {
 
   //variavel de controle do treino atual.
   const [proxTreino, setProxTreino] = useState(route.params.treinoIndex);
-  const [training, setTraining] = useState(false);
+  const [trainingStart, setTrainingStart] = useState(false);
 
   /**
    * CARREGANDO FONTE
@@ -54,18 +55,18 @@ export default function Treino({navigation, route}) {
   return (
     <View style={styles.container}>
 
-      {
-        <View style={styles.container}> 
-          <Text style={{color:"#fff",}}>RENDERIZAÇÃO CONDICIONAL AQUI</Text>
-          
-          <TreinoEscolhido treino={proxTreino}/>
+      <TreinoEscolhido treino={proxTreino}/>
 
-          {/**BOTÕES */}
+      {
+        trainingStart==false ?
+    
           <View style={styles.buttonContainer}>
             <TouchableOpacity 
               style={styles.button}
+              onPress={()=> setTrainingStart(true)}
+    
             >
-              <Text style={styles.textButton}>INICIAR/PARAR/CONCLUIR</Text>
+              <Text style={styles.textButton}>INICIAR</Text>
             </TouchableOpacity>
           
             <TouchableOpacity 
@@ -74,9 +75,12 @@ export default function Treino({navigation, route}) {
             >
               <Text style={styles.textButton}>SELECIONAR OUTRO TREINO</Text>
             </TouchableOpacity>
-
           </View>
-        </View>
+        
+        :
+        
+        <Cronometro />
+
       }
               
     </View>

@@ -7,7 +7,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 import Home from "./src/components/Home";
-import Treino from "./src/components/Treino";
+import TreinoSelect from "./src/components/TreinoSelect";
+
 
 export default function App() {
 
@@ -23,7 +24,9 @@ export default function App() {
         }}
       >
         <Stack.Screen name="Home" component={Home} options={{headerShown:false}}/>
-        <Stack.Screen name="Treino" component={Treino} options={{title:""}}/>
+        <Stack.Screen name="TreinoSelect" component={TreinoSelect} options={{title:""}}/>     
+      
+
       </Stack.Navigator>
     </NavigationContainer>
 
