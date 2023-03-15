@@ -74,7 +74,8 @@ const styles = StyleSheet.create({
     //cronometro
     cronometro:{
       width:"100%",
-      
+      justifyContent:"center",
+      alignItems:"center",
     },
 
     cronometroNum:{
@@ -84,30 +85,75 @@ const styles = StyleSheet.create({
       textAlign:"center",
     },
 
-    roundConcluido:{
+    treinoConcluido:{
       backgroundColor:"#357643",
-      borderRadius:30,
+      borderRadius:20,
   
       padding:5,
-      width:"40%",
-      height:50,
+      marginTop:20,
 
-      marginRight:30,
-      marginTop:10,
-      marginBottom:10,
+      width:"50%",
+      height:50,
 
       alignItems:"center",
       justifyContent:"center",
-      alignSelf:"flex-end",
+
     },
 
-    textButtonRound:{
+    treinoConcluidoText:{
       color:"#FFFFFF",
       fontFamily:"LeagueSpartanBold",
       textAlign:"center",
-      fontSize: 16,
+      fontSize: 17,
     },
 
+    //resultado do treino
+    resultContainer:{
+        width:"100%",
+        justifyContent:"center",
+        alignItems:"center",
+
+    },
+    resultText:{
+      color:"#FFFFFF",
+      fontSize:26,
+      fontFamily:"LeagueSpartanBold",
+      textAlign:"center",
+    },
+
+    shareBtn:{
+      backgroundColor:"#357643",
+      borderRadius:0,
+  
+      padding:10,
+      marginTop:20,
+
+      width:"60%",
+      height:50,
+
+      alignItems:"center",
+      justifyContent:"center",
+
+    },
+    NovoTreinoBtn:{
+      backgroundColor:"#C72C2C",
+      borderRadius:0,
+  
+      padding:10,
+      marginTop:20,
+
+      width:"60%",
+      height:50,
+
+      alignItems:"center",
+      justifyContent:"center",
+    },
+    btnText:{
+      color:"#FFFFFF",
+      fontFamily:"LeagueSpartanBold",
+      textAlign:"center",
+      fontSize: 20,
+    },
   });
 
   export default styles;

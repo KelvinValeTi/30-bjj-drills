@@ -11,7 +11,10 @@ import styles from "./styleTreino";
 export default function Cronometro() {
   
   const [seconds, setSeconds] = useState(0);
-  const [minutes, setMinutes] = useState(10);
+  const [minutes, setMinutes] = useState(30);
+
+  const [result, setResult] = useState(null);
+  const [finish, setFinish] = useState(false);
 
   function cronometroStart() {
     
@@ -23,8 +26,6 @@ export default function Cronometro() {
       setMinutes(minutes-1);
       setSeconds(59);
     }
-
-    console.log(seconds);
   }
 
   //formata o numero com dois digitos sempre
@@ -37,6 +38,12 @@ export default function Cronometro() {
     return num;
   }
   
+  //finalizando treino
+  function treinoFinish(minutes,seconds){
+    setFinish(true);
+    alert("Treino Completo!\nSeu Tempo: "+minutes+":"+seconds);
+    
+  }
   
   /**
    * CARREGANDO FONTE
@@ -61,22 +68,40 @@ export default function Cronometro() {
    * RETURN
    =========*/
   return (
-      <View style={styles.cronometro}>
-    
-        <TouchableOpacity 
-            style={styles.roundConcluido}
-            onPress={()=>console.log("round concluido")}
-        >
-            <Text style={styles.textButtonRound}>Round Concluido</Text>
-        </TouchableOpacity>
+      <View>
 
-        {
-          cronometroStart()
-        }
-        <Text style={styles.cronometroNum}>
-          {formatNumber(minutes)}:{formatNumber(seconds)}
-        </Text>
         
+        {finish==false?
+          <View style={styles.cronometro}>
+          {cronometroStart()}
+          
+          <Text style={styles.cronometroNum}>
+          {formatNumber(minutes)}:{formatNumber(seconds)}
+          </Text>
+        
+        <TouchableOpacity 
+            style={styles.treinoConcluido}
+            onPress={()=>setFinish(true)}
+        >
+            <Text style={styles.treinoConcluidoText}>CONCLUIR TREINO</Text>
+        </TouchableOpacity>
+        </View>
+          :
+          <View style={styles.resultContainer}>
+            <Text style={styles.resultText}>Treino Completo!</Text>
+            <Text style={styles.resultText}>
+              Seu Tempo: {formatNumber(minutes)}:{formatNumber(seconds)}
+            </Text>
+
+            <TouchableOpacity 
+              style={styles.shareBtn}
+            >
+              <Text style={styles.btnText}>Compartilhar</Text>
+            </TouchableOpacity>
+
+          </View>
+        }
+
       </View>  
   );
 }

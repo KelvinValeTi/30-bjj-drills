@@ -8,7 +8,7 @@ const Stack = createStackNavigator();
 
 import Home from "./src/components/Home";
 import TreinoSelect from "./src/components/TreinoSelect";
-
+import Cronometro from "./src/components/TreinoSelect/Cronometro";
 
 export default function App() {
 
@@ -24,8 +24,8 @@ export default function App() {
         }}
       >
         <Stack.Screen name="Home" component={Home} options={{headerShown:false}}/>
-        <Stack.Screen name="TreinoSelect" component={TreinoSelect} options={{title:""}}/>     
-      
+        <Stack.Screen name="TreinoSelect" component={TreinoSelect} options={{title:""}}/>    
+        <Stack.Screen name="Cronometro" component={Cronometro} options={{title:""}}/> 
 
       </Stack.Navigator>
     </NavigationContainer>
