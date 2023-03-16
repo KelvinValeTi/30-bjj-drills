@@ -10,6 +10,7 @@ import Home from "./src/components/Home";
 import TreinoSelect from "./src/components/TreinoSelect";
 import Cronometro from "./src/components/TreinoSelect/Cronometro";
 
+
 export default function App() {
 
   return (

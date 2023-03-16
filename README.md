@@ -10,7 +10,7 @@ Os treinos foram elaborados pelo desenvolvedor do aplicativo que é praticante d
 <img src="./assets/screensReadme/telaInicial.jpg" alt="Tela inicial do app">
 <img src="./assets/screensReadme/escolheTreino.jpg" alt="Tela para escolher o treino">
 <img src="./assets/screensReadme/treinoInicio.jpg" alt="Tela de inicio do treino">
-<img src="./assets/screensReadme/telaFIm.jpg" alt="Tela final do app">
+<img src="./assets/screensReadme/telaFim.jpg" alt="Tela final do app">
 
 # Paleta de cores
     cinza -> #EEEEEE
