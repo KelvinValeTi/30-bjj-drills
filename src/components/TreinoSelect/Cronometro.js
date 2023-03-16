@@ -1,5 +1,5 @@
 import { useCallback, useState, useEffect } from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View, Share} from 'react-native';
 import {useFonts} from 'expo-font';
 
 import styles from "./styleTreino";
@@ -12,20 +12,32 @@ export default function Cronometro() {
   
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(30);
+  const [timeLimit, setTimeLimit] = useState(1800);
+  
+  const [totalSeconds, setTotalSeconds] = useState(0);
 
-  const [result, setResult] = useState(null);
   const [finish, setFinish] = useState(false);
 
+
+  //iniciar o cronometro
   function cronometroStart() {
     
-    if(seconds>=0){
+    if(timeLimit>=0){
       setTimeout(() => {
-        setSeconds(seconds-1);   
+        setTotalSeconds(totalSeconds+1);
+        setTimeLimit(timeLimit-1);
       }, 1000);
-    }else{
-      setMinutes(minutes-1);
-      setSeconds(59);
     }
+  }
+
+  //visor cronometro
+  function visorCronometro(){
+
+    let min = Math.trunc(timeLimit/60);
+    let sec = timeLimit%60;
+
+    let visor = formatNumber(min)+":"+formatNumber(sec);
+    return visor;
   }
 
   //formata o numero com dois digitos sempre
@@ -39,10 +51,13 @@ export default function Cronometro() {
   }
   
   //finalizando treino
-  function treinoFinish(minutes,seconds){
-    setFinish(true);
-    alert("Treino Completo!\nSeu Tempo: "+minutes+":"+seconds);
-    
+  function resultado(){
+    let min = Math.trunc(totalSeconds/60);
+    let sec = totalSeconds%60;
+
+    let result = formatNumber(min)+":"+formatNumber(sec);
+
+    return result;
   }
   
   /**
@@ -73,11 +88,9 @@ export default function Cronometro() {
         
         {finish==false?
           <View style={styles.cronometro}>
-          {cronometroStart()}
+          {cronometroStart()}      
           
-          <Text style={styles.cronometroNum}>
-          {formatNumber(minutes)}:{formatNumber(seconds)}
-          </Text>
+          <Text style={styles.cronometroNum}>{visorCronometro()}</Text>
         
         <TouchableOpacity 
             style={styles.treinoConcluido}
@@ -90,14 +103,8 @@ export default function Cronometro() {
           <View style={styles.resultContainer}>
             <Text style={styles.resultText}>Treino Completo!</Text>
             <Text style={styles.resultText}>
-              Seu Tempo: {formatNumber(minutes)}:{formatNumber(seconds)}
+              Seu Tempo: {resultado()}
             </Text>
-
-            <TouchableOpacity 
-              style={styles.shareBtn}
-            >
-              <Text style={styles.btnText}>Compartilhar</Text>
-            </TouchableOpacity>
 
           </View>
         }
