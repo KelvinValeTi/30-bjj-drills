@@ -1,4 +1,5 @@
 # 30' BJJ drills
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/KelvinValeTi/30-bjj-drills/blob/main/LICENSE) 
 
 # Sobre o projeto
 30' BJJ drills é uma aplicação mobile que gera treinos de preparação fisica para o Jiu Jitsu, para serem executados em 30 minutos no máximo.
