@@ -19,8 +19,5 @@ Os treinos foram elaborados pelo desenvolvedor do aplicativo que é praticante d
 - React Native
 - Expo
 
-# Como executar o projeto
-- link do projeto publicado.
-
 # Autor
 Kelvin Vale dos Anjos
